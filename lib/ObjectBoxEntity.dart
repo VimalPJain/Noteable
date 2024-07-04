@@ -8,6 +8,11 @@ class Note {
 
   late String title;
   late String description;
+  bool favourited = false;
 
-  Note({this.id = 0, required this.title, required this.description});
+  Note({
+    this.id = 0,
+    required this.title,
+    required this.description,
+  });
 }

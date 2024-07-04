@@ -22,7 +22,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(1, 828638386736970293),
       name: 'Note',
-      lastPropertyId: const obx_int.IdUid(3, 5109930381881995729),
+      lastPropertyId: const obx_int.IdUid(4, 4206644850096572600),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -39,6 +39,11 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(3, 5109930381881995729),
             name: 'description',
             type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 4206644850096572600),
+            name: 'favourited',
+            type: 1,
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
@@ -104,10 +109,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
         objectToFB: (Note object, fb.Builder fbb) {
           final titleOffset = fbb.writeString(object.title);
           final descriptionOffset = fbb.writeString(object.description);
-          fbb.startTable(4);
+          fbb.startTable(5);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, titleOffset);
           fbb.addOffset(2, descriptionOffset);
+          fbb.addBool(3, object.favourited);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -122,7 +128,9 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.StringReader(asciiOptimization: true)
                   .vTableGet(buffer, rootOffset, 8, '');
           final object = Note(
-              id: idParam, title: titleParam, description: descriptionParam);
+              id: idParam, title: titleParam, description: descriptionParam)
+            ..favourited =
+                const fb.BoolReader().vTableGet(buffer, rootOffset, 10, false);
 
           return object;
         })
@@ -143,4 +151,8 @@ class Note_ {
   /// See [Note.description].
   static final description =
       obx.QueryStringProperty<Note>(_entities[0].properties[2]);
+
+  /// See [Note.favourited].
+  static final favourited =
+      obx.QueryBooleanProperty<Note>(_entities[0].properties[3]);
 }
