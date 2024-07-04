@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:noteable/HomePage.dart';
 import 'package:noteable/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -97,6 +98,17 @@ class _ViewNotePageState extends State<ViewNotePage> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(
+          color: Theme.of(context).colorScheme.primary,
+          onPressed: () {
+            _saveNote(indexData);
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const HomePage(title: 'Noteable Notes'),
+              ),
+            );
+          },
+        ),
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
@@ -160,7 +172,7 @@ class _ViewNotePageState extends State<ViewNotePage> {
         onPressed: () => _saveNote(indexData),
         tooltip: 'Save',
         child: const Icon(Icons.save),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
