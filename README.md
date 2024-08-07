@@ -2,15 +2,18 @@
 
 Notes app with a listview and many animations
 
-## Getting Started
+## Highlights
 
-This project is a starting point for a Flutter application.
+Built an application with multiple pages. 
+Ability to favourite items.
+Rich text editor to create notes.
+Sort the notes by date.
+Change theme colour.
+Google Ads Ad implemented.
 
-A few resources to get you started if this is your first Flutter project:
+## Summary
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I built this android application using Flutter to understand a new programming language.
+From this I have gathered Flutter is useful for UI design and the rough outline of a project can be easily created using Flutter.
+The notes app garners many widgets to harness the power of Dart and it even has a Google Ads functionality built in. 
+The packages, API, or general information on Flutter is easily accessed through their main website and a lot of the tutorials make it easy to work off of.
